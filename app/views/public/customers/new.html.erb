@@ -1,13 +1,16 @@
 <h1>家族構成登録<h1>
  
-<%= form_with model: @customer, url:customers_path, method: :post do |f| %>
+<%= form_with model:@customer, url: customers_path, method: :post do |f| %>
+
 
 <h6>名前</h6>
  <%= f.text_area:last_name %><%= f.text_area:first_name %>
  
 <h6>カナ</h6>
-<%= f.text_area:name_kana %>
+ <%= f.text_area:name_kana %>
 
 <h6>メールアドレス</h6>
-<%= f.text_area:email %>
+ <%= f.text_area:email %>
+ 
+ <%= f.submit '投稿' %>
 <% end %>
