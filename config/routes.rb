@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
   get 'events/index'
+  get 'contacts/index'
+  post 'contacts/done'
+  post 'contacts/confirm'
+  resources :groups do      
+    get "join" => "groups#join"
+    delete "disjoin" => "groups#disjoin"
+  end
+  
   devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'

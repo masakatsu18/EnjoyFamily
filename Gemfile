@@ -54,3 +54,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem "simple_calendar", "~> 2.0"
 gem 'pry-rails'
+gem 'dotenv-rails'
+gem 'font-awesome-sass', '~> 5.15.1'
+

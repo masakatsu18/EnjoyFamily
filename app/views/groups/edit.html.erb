@@ -1,0 +1,16 @@
+<h1>グループ作成</h1>
+    <%= form_with model:@group, url:group_path, method: :patch do |f| %>
+
+        <h1>グループ名</h1>
+        <%= f.text_field :name %>
+    
+        <h1>グループ説明</h1>
+        <%= f.text_area :introduction %>
+        
+        <%= f.submit'更新する' %>
+     <% end %>   
+    
+    
+    
+
+

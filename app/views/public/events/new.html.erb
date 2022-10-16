@@ -13,9 +13,10 @@
   <div class="content">
     <%= form.label :content %>
     <%= form.text_field :content %>
-  </div>
-
-
+  </div> 
+  
+  <%#= form.check_box(post, :checked={}, checked_value= current_customer.group_id , unchecked_value= current_customer) %>
+  <%= form.check_box(:confirm) %>
   <div class="submit">
     <%= form.submit %>
   </div>

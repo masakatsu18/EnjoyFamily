@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_11_144838) do
+ActiveRecord::Schema.define(version: 2022_10_16_055003) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", null: false
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2022_10_11_144838) do
     t.string "name_kana", null: false
     t.string "is_deleted", default: "f", null: false
     t.string "family_structure", null: false
+    t.integer "group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
@@ -42,9 +43,24 @@ ActiveRecord::Schema.define(version: 2022_10_11_144838) do
   end
 
   create_table "events", force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "group_id"
     t.string "title"
     t.text "content"
     t.datetime "start_time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "group_customers", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string "name"
+    t.text "introduction"
+    t.integer "owner_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -1,0 +1,20 @@
+<%= @customer.full_name %>さんの編集
+
+<%= form_with model: @customer, url:admin_customer_path(@customer.id), method: :patch do |f| %>
+
+        <h6>名前</h6>
+         <%= f.text_area:full_name %>
+     
+        <h6>カナ</h6>
+         <%= f.text_area:name_kana %>
+         
+        <h6>メールアドレス</h6>
+         <%= f.text_area:email %>
+         
+         <h6>家族リスト１</h6>
+         <%= f.text_area:family_structure %>
+         
+         <tr>
+		   	<td colspan="3"><%= f.submit "更新", class: "btn btn-primary" %></td>
+		 </tr>
+<% end %>
