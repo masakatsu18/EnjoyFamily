@@ -9,10 +9,9 @@ class Public::EventsController < ApplicationController
   end
   
   def create
-    @events = Event.new(event_params)
-    @events = @group
-    @events.customer_id = current_customer.id
-    @events.save!
+    @event = Event.new(event_params)
+    @event.customer_id = current_customer.id
+    @event.save!
     redirect_to events_path
   end
 

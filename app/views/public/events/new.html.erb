@@ -16,7 +16,12 @@
   </div> 
   
   <%#= form.check_box(post, :checked={}, checked_value= current_customer.group_id , unchecked_value= current_customer) %>
-  <%= form.check_box(:confirm) %>
+  <div>
+    <%= form.check_box(:group_id, {checked: false}, checked_value="#{current_customer.group_id}" ,unchecked_value="false") %>
+    <%= form.label "グループに共有する" %>
+  </div>
+  
+  
   <div class="submit">
     <%= form.submit %>
   </div>

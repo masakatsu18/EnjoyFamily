@@ -1,7 +1,9 @@
+        <table class="table table-lg-responsive">
         	<thead>
         		<th>会員ID</th>
         		<th>名前</th>
         		<th>フリガナ</th>
+        		<th>メールアドレス</th>
         		<th>会員ステータス</th>
         		<th></th>
         	</thead>
@@ -10,6 +12,7 @@
         			<tr>
         				<td><%= customer.id %></td>
         				<td><%= customer.full_name %></td>
+        				<td><%= customer.name_kana %></td>
         				<td><%= customer.name_kana %></td>
         				<td>
         					<% if customer.is_deleted? %>
@@ -22,4 +25,5 @@
         			</tr>
         		<% end %>
         	</tbody>
+        </table>
         
