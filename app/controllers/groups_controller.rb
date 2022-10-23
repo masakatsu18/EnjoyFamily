@@ -12,6 +12,7 @@ class GroupsController < ApplicationController
         @groups = Group.all
         @group = Group.find(params[:id])
         @events = @group.events
+        @event = Event.new
       end
       
       def edit
@@ -19,7 +20,6 @@ class GroupsController < ApplicationController
       end
      
       def create
-        @events = @group.events.new(event_params)
         @group = Group.new(group_params)
         if @group.save
           redirect_to group_path(@group)

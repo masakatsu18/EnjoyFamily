@@ -23,7 +23,7 @@
                 <%= link_to 'Edit', edit_group_path(@group), class: "btn btn-sm btn-success" %>
               <% elsif @group.customers.include?(current_customer) %>
                 <%= link_to 'Leave this group', group_disjoin_path(@group), method: :delete, class: "btn btn-sm btn-danger" %>
-                  <%= render template:"public/events/new" %>
+                  <%= render partial: 'public/events/form', locals: { event: @event, group: @group} %>
                   <%= render template:"public/events/index" %>
                  <% else %>
                 <%= link_to 'Join this group', group_join_path(@group), class: "btn btn-sm btn-success" %>

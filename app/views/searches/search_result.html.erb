@@ -1,0 +1,23 @@
+<h2>Results index</h2>
+
+<table class="table table-hover table-inverse">
+  <!--検索対象モデルがCustomerの時 -->
+  <% if @range == "Customer" %>
+    <tbody>
+      <% @customers.each do |f| %>
+        <tr>
+          <td><%= f.full_name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% else %>
+    <!--検索対象モデルがUserではない時(= 検索対象モデルがGroupの時) -->
+    <tbody>
+      <% @groups.each do |f| %>
+        <tr>
+          <td><%= f.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% end %>
+</table>

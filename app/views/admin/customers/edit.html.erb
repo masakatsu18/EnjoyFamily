@@ -1,5 +1,5 @@
 
- <p class="text-lg-center"><%= @customer.full_name %>さんの編集</p>
+ <p class="text-lg-center font-2"><%= @customer.full_name %>さんの編集</p>
     <div class="d-flex justify-content-center">
      <%= form_with model: @customer, url:admin_customer_path(@customer.id), method: :patch do |f| %>
        <form>

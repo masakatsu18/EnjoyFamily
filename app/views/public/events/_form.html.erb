@@ -1,0 +1,35 @@
+<%= form_with model: event, url: events_path, method: :post do |form| %>
+
+  <div class="title">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+    <div class="time">
+    <%= form.label :start_time %>
+    <%= form.datetime_select :start_time %>
+  </div>
+
+  <div class="content">
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div> 
+  
+  
+  <div>
+    <% if group == 'false' %> 
+        <% if current_customer.group.present? %>
+          <%= form.check_box(:group_id, {checked: false}, checked_value="#{current_customer.group_id}" ,unchecked_value="false") %>
+          <%= form.label "グループに共有する" %>
+        <% end %>
+    <% else %>
+       <%= form.hidden_field :group_id, :value => group.id %>
+    <% end %>
+  </div>
+  
+  
+  <div class="submit">
+    <%= form.submit %>
+  </div>
+
+<% end %>

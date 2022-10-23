@@ -32,9 +32,9 @@ ActiveRecord::Schema.define(version: 2022_10_16_055003) do
     t.datetime "remember_created_at"
     t.string "last_name", null: false
     t.string "first_name", null: false
-    t.string "name_kana", null: false
+    t.string "first_name_kana", null: false
+    t.string "last_name_kana", null: false
     t.string "is_deleted", default: "f", null: false
-    t.string "family_structure", null: false
     t.integer "group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

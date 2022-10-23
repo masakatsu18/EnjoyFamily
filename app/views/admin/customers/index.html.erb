@@ -1,4 +1,5 @@
         <table class="table table-lg-responsive">
+          <p class ="font-2">会員一覧<p>
         	<thead>
         		<th>会員ID</th>
         		<th>名前</th>
@@ -13,7 +14,7 @@
         				<td><%= customer.id %></td>
         				<td><%= customer.full_name %></td>
         				<td><%= customer.name_kana %></td>
-        				<td><%= customer.name_kana %></td>
+        				<td><%= customer.email %></td>
         				<td>
         					<% if customer.is_deleted? %>
         						<span class="text-active">有効</span>	

@@ -1,24 +1,28 @@
-        <p class="text-center">sign in</p>
+        <p class="text-center font">sign in</p>
           <div class="d-flex justify-content-center">
             <div class="mt-5">
                 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                <div class="field">
+                <div class="field font-2 mt-2">
                   <%= f.label :email %><br />
                   <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
                 </div>
             
-              <div class="mt-5">
+              <div class="field font-2 mt-5">
                 <%= f.label :password %><br />
                 <%= f.password_field :password, autocomplete: "current-password" %>
               </div>
             
               <% if devise_mapping.rememberable? %>
-                <div class="mb-5">
+                <div class="field">
                   <%= f.check_box :remember_me %>
                   <%= f.label :remember_me %>
                 </div>
               <% end %>
-            <% end %>
+            
+                <div class="actions">
+                  <%= f.submit "Log in",class:'btn btn-primary' %>
+                </div>
+              <% end %>
               </div>
             </div>
         <p class="text-center">登録がまだの方は<%= link_to "こちら",new_customer_registration_path %></p>

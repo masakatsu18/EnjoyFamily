@@ -1,7 +1,7 @@
 class Public::EventsController < ApplicationController
   def index
-    grouped_events = Group.find(current_customer.group_id).events # 自分が所属しているグルプのイベント
-    @events = current_customer.events.concat(grouped_events)
+    grouped_events = Group.find(current_customer.group_id).events # 自分が所属しているグル-プの全てのイベントを定義
+    @events = current_customer.events.concat(grouped_events)#グループのイベントとログインしているカスタマーが作成したイベントを繋ぐ
   end
   
   def new

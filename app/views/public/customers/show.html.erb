@@ -1,28 +1,20 @@
-      <section class="inner">
-     	<h2 class="section-ttl"><%= @customer.first_name %><%= @customer.last_name %>さんのページ</h2>
-     	<table class="customer_info">
-     		<thead>
-     			<th></th>
-     			<th></th>
-     			<th></th>
-     		</thead>
-     		<tbody>
+   
+   <p class ="text-center font-2"><%= @customer.full_name %>さんのページ</p>
+     	<div class="d-flex justify-content-center">
+     	  <div class= "mt-5 customer">
+     	      <div>
      			<tr>
-     				<td>名前</td>
-     				<td>(姓) <%= @customer.first_name %></td>
-     				<td>(名) <%= @customer.last_name %></td>
+     				<td>(姓) <%= @customer.last_name %></td>
+     				<td>(名) <%= @customer.first_name %></td>
      			</tr>
+     		  </div>
      			<tr>
-     				<td>フリガナ</td>
-     				<td> <%= @customer.name_kana %></td>
+     				<td>（セイ） <%= @customer.last_name_kana %></td>
+     				<td>（メイ）<%= @customer.first_name_kana %></td>c
      			</tr>
      			<tr>
      				<td>メールアドレス</td>
      				<td colspan="2"><%= @customer.email %></td>
-     			</tr>
-        <tr>
-     				<td>家族構成</td>
-     				<td colspan="2"><%= @customer.family_structure %></td>
      			</tr>
      				<td>会員ステータス</td>
      				<td colspan="2">
@@ -37,7 +29,7 @@
      				<td><%= link_to "編集", edit_customer_path(@customer), class: "btn btn-success" %></td>
      				<td><%= link_to "スケジュール管理",  new_event_path, class: "btn btn-success" %></td>
      			</tr>
-     		</tbody>
-     	</table>
+     		 </div>
+     		</div>
+     	  </div>
      	
-     </section>

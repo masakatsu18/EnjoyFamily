@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'contacts/index'
   post 'contacts/done'
   post 'contacts/confirm'
+  get "search" => "searches#search"
   resources :groups do      
     get "join" => "groups#join"
     delete "disjoin" => "groups#disjoin"
