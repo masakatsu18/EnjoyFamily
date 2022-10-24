@@ -22,7 +22,7 @@ class GroupsController < ApplicationController
       def create
         @group = Group.new(group_params)
         if @group.save
-          redirect_to group_path(@group)
+            redirect_to group_path(@group)
         else
           render 'new'
         end
@@ -47,7 +47,7 @@ class GroupsController < ApplicationController
         def disjoin
          @group = Group.find(params[:group_id])
          @group.customers.delete(current_customer)
-         redirect_to groups_path
+         redirect_to group_path(@group)
         end
     
       private

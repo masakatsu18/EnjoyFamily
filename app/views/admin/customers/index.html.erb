@@ -13,7 +13,7 @@
         			<tr>
         				<td><%= customer.id %></td>
         				<td><%= customer.full_name %></td>
-        				<td><%= customer.name_kana %></td>
+        				<td><%= customer.last_name_kana+customer.first_name_kana %></td>
         				<td><%= customer.email %></td>
         				<td>
         					<% if customer.is_deleted? %>
@@ -23,6 +23,7 @@
         					<% end %>
         				</td>
         				<td><%= link_to "詳細", edit_admin_customer_path(customer), class: "btn btn-primary" %></td>
+        				<td><%= link_to "削除", admin_customer_path(customer), method: :delete, class: "btn btn-danger" %></td>
         			</tr>
         		<% end %>
         	</tbody>

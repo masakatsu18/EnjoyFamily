@@ -12,7 +12,11 @@ class Public::EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.customer_id = current_customer.id
     @event.save!
-    redirect_to events_path
+    if params[:event][:group_id].present?
+     redirect_to group_path(@event.group_id)
+    else
+     redirect_to events_path
+    end
   end
 
   private

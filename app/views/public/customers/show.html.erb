@@ -2,20 +2,12 @@
    <p class ="text-center font-2"><%= @customer.full_name %>さんのページ</p>
      	<div class="d-flex justify-content-center">
      	  <div class= "mt-5 customer">
-     	      <div>
-     			<tr>
-     				<td>(姓) <%= @customer.last_name %></td>
-     				<td>(名) <%= @customer.first_name %></td>
-     			</tr>
-     		  </div>
-     			<tr>
-     				<td>（セイ） <%= @customer.last_name_kana %></td>
-     				<td>（メイ）<%= @customer.first_name_kana %></td>c
-     			</tr>
-     			<tr>
-     				<td>メールアドレス</td>
-     				<td colspan="2"><%= @customer.email %></td>
-     			</tr>
+     	      <div class="d-flex flex-column">
+                  <div class="p-2"><td> <%= @customer.last_name+@customer.first_name %></td></div>
+                  <div class="p-2"><%= @customer.last_name_kana+@customer.first_name_kana %></div>
+                  <div class="p-2"><td colspan="2"><%= @customer.email %></td></div>
+              
+     		
      				<td>会員ステータス</td>
      				<td colspan="2">
      					<% if @customer.is_deleted? %>
@@ -29,6 +21,7 @@
      				<td><%= link_to "編集", edit_customer_path(@customer), class: "btn btn-success" %></td>
      				<td><%= link_to "スケジュール管理",  new_event_path, class: "btn btn-success" %></td>
      			</tr>
+     		  </div>
      		 </div>
      		</div>
      	  </div>
