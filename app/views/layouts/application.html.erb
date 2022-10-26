@@ -21,7 +21,11 @@
                       <% elsif customer_signed_in? %>
                        <%= render partial:"searches/search" %>
                        <li><i class= "fas fa-user-alt ml-4"></i><%= link_to 'my page', root_path %></li>
-                       <li><i class= "fas fa-sitemap ml-4"></i><%= link_to 'group', new_group_path %></li>
+                       <% if current_customer.group.present? %>
+                         <li><i class= "fas fa-sitemap ml-4"></i><%= link_to 'group', group_path(current_customer.group.id) %></li>
+                       <% else %>
+                         <li><i class= "fas fa-sitemap ml-4"></i><%= link_to 'group', groups_path %></li>
+                       <% end %>
                        <li><i class= "fas fa-marker ml-4"></i><%= link_to 'sucedule', events_path %></li>
                        <li><i class= "fas fa-marker ml-4"></i><%= link_to 'contacts', contacts_index_path %></li>
                        <li><i class="fas fa-sign-out-alt ml-4"></i><%= link_to 'log out', destroy_customer_session_path, method: :delete %></li>

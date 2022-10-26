@@ -21,11 +21,11 @@
               <% if @group.owner_id == current_customer.id %>
                 <%= link_to 'Edit', edit_group_path(@group), class: "btn btn-sm btn-success" %>
               <% elsif @group.customers.include?(current_customer) %>
-                <%= link_to 'Leave this group', group_disjoin_path(@group), method: :delete, class: "btn btn-sm btn-danger" %>
+                <%= link_to 'Leave this group', group_disjoin_path(@group), method: :delete, class: "btn btn-sm btn-danger" ,data: { confirm: "【確認】グループを退会してもよろしいですか？" } %>
                   <%= render partial: 'public/events/form', locals: { event: @event, group: @group} %>
                   <%= render template:"public/events/index" %>
                  <% else %>
-                <%= link_to 'Join this group', group_join_path(@group), class: "btn btn-sm btn-success" %>
+                <%= link_to 'Join this group', group_join_path(@group), class: "btn btn-sm btn-success",data: { confirm: "【確認】グループに入会しますか？" } %>
               <% end %>
             </td>
            </tr>

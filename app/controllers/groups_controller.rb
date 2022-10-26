@@ -6,10 +6,11 @@ class GroupsController < ApplicationController
       end
       
       def index
+        @groups = Group.all
+        @group = current_customer
       end
 
       def show
-        @groups = Group.all
         @group = Group.find(params[:id])
         @events = @group.events
         @event = Event.new
@@ -47,7 +48,7 @@ class GroupsController < ApplicationController
         def disjoin
          @group = Group.find(params[:group_id])
          @group.customers.delete(current_customer)
-         redirect_to group_path(@group)
+         redirect_to groups_path
         end
     
       private
