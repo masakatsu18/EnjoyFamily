@@ -4,8 +4,9 @@ class CreateEvents < ActiveRecord::Migration[6.1]
       t.integer :customer_id
       t.integer :group_id
       t.string :title
-      t.text :content
-      t.datetime :start_time
+      t.string :content
+      t.datetime :start_time, null: false
+      t.datetime :finish_time, null: false
       t.timestamps
     end
   end

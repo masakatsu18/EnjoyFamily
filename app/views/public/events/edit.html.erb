@@ -1,0 +1,35 @@
+<p class ="text-center font-2"><%= @event.title %>の編集</p>
+     <p class="text-center font">edit</p>
+       　 <div class="d-flex justify-content-center">
+          <%= form_with model: @event, url:event_path(@event.id), method: :patch do |f| %>
+
+            <div class = "mt-5 font-3">
+                    <tr>
+                      <td>title</td>
+                      <td><%= f.label :title, class: "customer_name" %> <%= f.text_field :title, autofocus: true, :size => "30*30" %></td>
+                    </tr>
+                  </div>
+                  
+                 <div class = "mt-5 font-3">   
+                    <tr>
+                      <td>content </td>
+                      <td><%= f.label :content %> <%= f.text_field :content, :size => "26*30" %></td
+                    </tr>
+                </div>
+                
+                 <div class="time mt-5 font-3">
+                    <%= f.label :start_time %>
+                    <%= f.datetime_select :start_time %>
+                 </div>
+                  
+                 <div class="time mt-5 font-3">
+                    <%= f.label :finish_time %>
+                    <%= f.datetime_select :finish_time %>
+                 </div>
+                                
+                
+
+               <div class = "mt-5">
+                <%= f.submit "更新", class: "btn btn-success" %>
+             		</div>
+      <% end %>

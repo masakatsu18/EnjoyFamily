@@ -5,9 +5,14 @@
     <%= form.text_field :title %>
   </div>
 
-    <div class="time">
+  <div class="time">
     <%= form.label :start_time %>
     <%= form.datetime_select :start_time %>
+  </div>
+  
+  <div class="time">
+    <%= form.label :finish_time %>
+    <%= form.datetime_select :finish_time %>
   </div>
 
   <div class="content">
@@ -21,6 +26,8 @@
         <% if current_customer.group.present? %>
           <%= form.check_box(:group_id, {checked: false}, checked_value="#{current_customer.group_id}" ,unchecked_value="false") %>
           <%= form.label "グループに共有する" %>
+        <% else %>
+          <%= form.hidden_field :group_id, :value => 'false' %>
         <% end %>
     <% else %>
        　<%= form.hidden_field :group_id, :value => group.id %>

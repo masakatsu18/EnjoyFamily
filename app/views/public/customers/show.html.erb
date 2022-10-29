@@ -4,9 +4,9 @@
      	  <div class= "mt-5 customer">
      	     <div class="d-flex flex-lg-column">
      	         <div class = "font-2"><td>名前</td>
-                  <div class="p-2"><td> <%= @customer.last_name+@customer.first_name %></td></div>
+                  <div class="p-2"><td> <%= @customer.full_name %></td></div>
                <td>カナ</td>
-                  <div class="p-2"><%= @customer.last_name_kana+@customer.first_name_kana %></div>
+                  <div class="p-2"><%= @customer.full_name_kana %></div>
                <td>メールアドレス</td>
                   <div class="p-2"><td colspan="2"><%= @customer.email %></td>
      　　　 </div>
@@ -23,7 +23,7 @@
      			</tr>
      			<tr>
      				<td><%= link_to "編集", edit_customer_path(@customer), class: "btn btn-success" %></td>
-     				<td><%= link_to "スケジュール管理",  new_event_path, class: "btn btn-success" %></td>
+     				<td><%= link_to "スケジュール管理",  events_path, class: "btn btn-success" %></td>
      			<% if current_customer.group.present? %>
      				<td><%= link_to "グループスケジュール",  group_path(current_customer.group.id), class: "btn btn-success" %></td>
      			<% else %>

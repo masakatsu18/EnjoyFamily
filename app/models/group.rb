@@ -2,6 +2,8 @@ class Group < ApplicationRecord
  has_many :events, dependent: :destroy
  has_many :customers
  
+ validates :owner_id, presence: true, uniqueness: true
+ 
  def self.looks(search, word)
     if search == "perfect_match"
       @group = Group.where("name LIKE?", "#{word}")

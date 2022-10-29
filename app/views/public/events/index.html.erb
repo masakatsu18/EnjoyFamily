@@ -6,6 +6,8 @@
         <% events.each do |event| %>
             <div>
               <%= event.title %>
+              <%= event.start_time.strftime( "%H:%M" ) %>〜<%= event.finish_time.strftime( "%H:%M" ) %>
+              <%= link_to"編集", edit_event_path(event), class: "btn btn-success" %>
             </div>
         <% end %>
 <% end %>

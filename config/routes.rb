@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'events/index'
+  get "/homes/about" => "homes#about", as: "about"
   get 'contacts/index'
   post 'contacts/done'
   post 'contacts/confirm'

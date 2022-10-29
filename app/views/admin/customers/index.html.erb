@@ -26,6 +26,7 @@
         				<td><%= link_to "削除", admin_customer_path(customer), method: :delete, class: "btn btn-danger",data: { confirm: "【確認】アカウントを削除してもよろしいですか？" } %></td>
         			</tr>
         		<% end %>
+        		<%= paginate @customers %>
         	</tbody>
         </table>
         

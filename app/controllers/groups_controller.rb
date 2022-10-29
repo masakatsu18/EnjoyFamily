@@ -7,8 +7,10 @@ class GroupsController < ApplicationController
       
       def index
         @groups = Group.all
-        @group = current_customer
+        #@group = current_customer
+        @groups = Group.page(params[:page])
       end
+    
 
       def show
         @group = Group.find(params[:id])
@@ -22,8 +24,10 @@ class GroupsController < ApplicationController
      
       def create
         @group = Group.new(group_params)
-        if @group.save
-            redirect_to group_path(@group)
+        @group.owner_id = current_customer.id
+        if @group.valid?
+          @group.save
+          redirect_to group_path(@group.id)
         else
           render 'new'
         end
@@ -54,7 +58,7 @@ class GroupsController < ApplicationController
       private
     
       def group_params
-        params.require(:group).permit(:name, :introduction, :group_id)
+        params.require(:group).permit(:name, :introduction)
       end
       
 end

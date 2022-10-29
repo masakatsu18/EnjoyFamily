@@ -13,10 +13,18 @@
                   <% @groups.each do |f| %>
                   <td><%= f.name %></td>
                   <td><%= f.introduction %></td>
-               <td><%= link_to '詳細', group_path(@group.id), class: "btn btn-sm btn-success" %></td>
+               <td><%= link_to '詳細', group_path(f.id), class: "btn btn-sm btn-primary" %></td>
+               <td><%= link_to '編集', edit_group_path(f.id), class: "btn btn-sm btn-success" %></td>
+              
           </tr>
            <% end %>
+           <%= paginate @groups %>
           </tbody>
+          <% if Group.where(owner_id:current_customer.id).present? %>
+            すでにグループを登録済みです
+          <%else%>
+            グループの作成は<%= link_to"こちら", new_group_path %>
+           <%end%>
         </table>
                      
                      

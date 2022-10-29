@@ -46,8 +46,9 @@ ActiveRecord::Schema.define(version: 2022_10_16_055003) do
     t.integer "customer_id"
     t.integer "group_id"
     t.string "title"
-    t.text "content"
-    t.datetime "start_time"
+    t.string "content"
+    t.datetime "start_time", null: false
+    t.datetime "finish_time", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
