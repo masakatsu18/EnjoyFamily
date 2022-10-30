@@ -2,6 +2,7 @@ class Event < ApplicationRecord
  belongs_to:customer
  belongs_to:group,optional: true
  
+  validates :title, presence: true
   validates :start_time, presence: true
   validates :finish_time, presence: true
   validate :start_finish_check

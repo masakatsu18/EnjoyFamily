@@ -58,4 +58,5 @@ gem 'dotenv-rails'
 gem 'font-awesome-sass', '~> 5.15.1'
 gem 'bootstrap', '~> 4.3.1'
 gem 'kaminari','~> 1.2.1'
+gem 'bcrypt', '~> 3.1.7'
 

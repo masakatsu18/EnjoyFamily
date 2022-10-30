@@ -7,7 +7,6 @@ class GroupsController < ApplicationController
       
       def index
         @groups = Group.all
-        #@group = current_customer
         @groups = Group.page(params[:page])
       end
     
@@ -25,9 +24,9 @@ class GroupsController < ApplicationController
       def create
         @group = Group.new(group_params)
         @group.owner_id = current_customer.id
-        if @group.valid?
-          @group.save
-          redirect_to group_path(@group.id)
+        if @group.save
+          current_customer.update(group_id: @group.id)
+          redirect_to groups_path
         else
           render 'new'
         end
@@ -45,8 +44,13 @@ class GroupsController < ApplicationController
       
       def join
         @group = Group.find(params[:group_id])
-        @group.customers << current_customer
-        redirect_to group_path(@group.id)
+        if @group.password_digest == (params[:group][:password])
+          @group.customers << current_customer
+          redirect_to group_path(@group.id)
+        else
+          redirect_to groups_path
+        end
+        
       end
         
         def disjoin
@@ -54,11 +58,18 @@ class GroupsController < ApplicationController
          @group.customers.delete(current_customer)
          redirect_to groups_path
         end
+        
+        def destroy
+          @group = Group.find(params[:id])
+          @group.destroy
+          redirect_to groups_path
+        end
+        
     
       private
     
       def group_params
-        params.require(:group).permit(:name, :introduction)
+        params.require(:group).permit(:name, :introduction, :password_digest)
       end
       
 end

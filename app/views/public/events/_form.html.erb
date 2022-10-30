@@ -1,42 +1,46 @@
-<%= form_with model: event, url: events_path, method: :post do |form| %>
+<p class="text-lg-center font-2">イベント追加</p>
+<div class="d-flex justify-content-center">
+ <%= form_with model: event, url: events_path, method: :post, local: true do |form| %>
 
-  <div class="title">
+  <div class="title mt-5">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, size:"50" %>
   </div>
 
-  <div class="time">
+  <div class="time mt-5">
     <%= form.label :start_time %>
     <%= form.datetime_select :start_time %>
   </div>
   
-  <div class="time">
+  <div class="time mt-5">
     <%= form.label :finish_time %>
     <%= form.datetime_select :finish_time %>
   </div>
 
-  <div class="content">
+  <div class="content mt-5">
     <%= form.label :content %>
-    <%= form.text_field :content %>
+    <%= form.text_field :content, size:"50"  %>
   </div> 
   
   
   <div>
-    <% if group == 'false' %> 
-        <% if current_customer.group.present? %>
-          <%= form.check_box(:group_id, {checked: false}, checked_value="#{current_customer.group_id}" ,unchecked_value="false") %>
-          <%= form.label "グループに共有する" %>
-        <% else %>
-          <%= form.hidden_field :group_id, :value => 'false' %>
-        <% end %>
-    <% else %>
-       　<%= form.hidden_field :group_id, :value => group.id %>
+    <% if group == 'false' %>
+      <% if current_customer.group.present? %>
+        <%= form.check_box(:group_id, {checked: false}, checked_value="#{current_customer.group_id}" ,unchecked_value="") %>
+        <%= form.label "グループに共有する" %>
+      <% end %>
+    <% elsif group.class == Group %>
+      <% if group.owner_id == current_customer.id || current_customer.group.present? %>
+        <%= form.check_box(:group_id, {checked: false}, checked_value="#{current_customer.group_id}" ,unchecked_value="") %>
+        <%= form.label "グループに共有する" %>
+      <% end %>
     <% end %>
   </div>
+
   
-  
-  <div class="submit">
+  <div class="submit mt-5">
     <%= form.submit %>
   </div>
 
 <% end %>
+</div>

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   post 'contacts/confirm'
   get "search" => "searches#search"
   resources :groups do      
-    get "join" => "groups#join"
+    post "join" => "groups#join"
     delete "disjoin" => "groups#disjoin"
   end
   

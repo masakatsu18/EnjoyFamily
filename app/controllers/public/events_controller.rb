@@ -1,8 +1,8 @@
 class Public::EventsController < ApplicationController
   def index
-    group = Group.find_by(id:current_customer.group_id)
+    group = Group.find_by(id: current_customer.group_id)
     grouped_events = group ? group.events : [] # 自分が所属しているグル-プの全てのイベントを定義
-    @events = current_customer.events.concat(grouped_events)#グループのイベントとログインしているカスタマーが作成したイベントを繋ぐ
+    @events = current_customer.events #.where(id: grouped_events.ids) #グループのイベントとログインしているカスタマーが作成したイベントを繋ぐ
   end
   
   def new
@@ -12,11 +12,14 @@ class Public::EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.customer_id = current_customer.id
-    @event.save!
-    if params[:event][:group_id] == "false"
-     redirect_to events_path
+    if @event.save
+      if @event.group_id
+        redirect_to events_path
+      else
+        redirect_to events_path
+      end
     else
-     redirect_to group_path(@event.group_id)
+      render :new
     end
   end
   
@@ -25,9 +28,13 @@ class Public::EventsController < ApplicationController
   end
   
   def update
-     @event = Event.find(params[:id])
-     @event.update(event_params) 
+    @event = Event.find(params[:id])
+    @event.update(event_params) 
+    if params[:event][:group_id] == "false"
      redirect_to events_path
+    else
+     redirect_to group_path(@event.group_id)
+    end
   end
   
   private

@@ -1,7 +1,7 @@
 class Group < ApplicationRecord
  has_many :events, dependent: :destroy
  has_many :customers
- 
+ has_secure_password
  validates :owner_id, presence: true, uniqueness: true
  
  def self.looks(search, word)

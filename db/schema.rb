@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 2022_10_16_055003) do
     t.string "name"
     t.text "introduction"
     t.integer "owner_id"
+    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

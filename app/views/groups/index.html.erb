@@ -10,21 +10,23 @@
           </thead>
           <tbody>
             <tr>
-                  <% @groups.each do |f| %>
+                 <% @groups.each do |f| %>
                   <td><%= f.name %></td>
                   <td><%= f.introduction %></td>
-               <td><%= link_to '詳細', group_path(f.id), class: "btn btn-sm btn-primary" %></td>
-               <td><%= link_to '編集', edit_group_path(f.id), class: "btn btn-sm btn-success" %></td>
-              
+                      <% if f.owner_id == current_customer.id %>
+                       <td><%= link_to '編集', edit_group_path(f.id), class: "btn btn-sm btn-success" %></td>
+                       <td><%= link_to '削除', group_path(f.id), method: :delete,class: "btn btn-sm btn-danger" %></td>
+                      <% end %>
+                      <td><%= link_to '詳細', group_path(f.id), class: "btn btn-sm btn-primary" %>
           </tr>
-           <% end %>
+                   <% end %>
            <%= paginate @groups %>
           </tbody>
           <% if Group.where(owner_id:current_customer.id).present? %>
             すでにグループを登録済みです
-          <%else%>
+          <% else %>
             グループの作成は<%= link_to"こちら", new_group_path %>
-           <%end%>
+          <% end %>
         </table>
                      
                      

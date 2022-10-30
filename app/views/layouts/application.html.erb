@@ -6,6 +6,7 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
     
           <body class="d-flex flex-column vh-100">
             <header class="shadow-sm">
@@ -14,9 +15,8 @@
                   <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav ml-auto">
                       <% if admin_signed_in? %>
-                        <ul class="flex">
                           <li><i class="fas fa-sign-out-alt"></i><%= link_to 'log out', destroy_admin_session_path, method: :delete %></li>
-                          <li><i class= "fas fa-users"></i><%= link_to '会員一覧', admin_customers_path %></li>
+                          <li><i class= "fas fa-users ml-4"></i><%= link_to '会員一覧', admin_customers_path %></li>
                         </ul>
                       <% elsif customer_signed_in? %>
                        <li><i class= "fas fa-user-alt ml-4"></i><%= link_to 'my page', root_path %></li>
@@ -41,7 +41,8 @@
           </head>
 
   <body>
-    <%= pp customer_signed_in? %>
+    <%= customer_signed_in?.inspect if Rails.env.development? %>
     <%= yield %>
+    <%= debug(params) if Rails.env.development? %>
   </body>
 </html>
