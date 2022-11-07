@@ -9,25 +9,25 @@
                       <td><%= f.label :title, class: "customer_name" %> <%= f.text_field :title, autofocus: true, :size => "30*30" %></td>
                     </tr>
                   </div>
-                  
-                 <div class = "mt-5 font-3">   
+
+                 <div class = "mt-5 font-3">
                     <tr>
                       <td>content </td>
-                      <td><%= f.label :content %> <%= f.text_field :content, :size => "26*30" %></td
+                      <td><%= f.label :content %> <%= f.text_field :content, :size => "26*30" %></td>
                     </tr>
                 </div>
-                
+
                  <div class="time mt-5 font-3">
                     <%= f.label :start_time %>
                     <%= f.datetime_select :start_time %>
                  </div>
-                  
+
                  <div class="time mt-5 font-3">
                     <%= f.label :finish_time %>
                     <%= f.datetime_select :finish_time %>
                  </div>
-                                
-                
+
+
 
                <div class = "mt-5">
                 <%= f.submit "更新", class: "btn btn-success" %>
