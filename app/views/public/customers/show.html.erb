@@ -1,38 +1,37 @@
-   
+
    <p class ="text-center font-2"><%= @customer.full_name %>さんのページ</p>
      	<div class="d-flex justify-content-center">
      	  <div class= "mt-5 customer">
      	     <div class="d-flex flex-lg-column">
-     	         <div class = "font-2"><td>名前</td>
+     	         <div class = "font-2"><td>name</td>
                   <div class="p-2"><td> <%= @customer.full_name %></td></div>
-               <td>カナ</td>
+               <td>kana</td>
                   <div class="p-2"><%= @customer.full_name_kana %></div>
-               <td>メールアドレス</td>
+               <td>e-mail</td>
                   <div class="p-2"><td colspan="2"><%= @customer.email %></td>
      　　　 </div>
-              
-     		
-     				<td>会員ステータス</td>
+
+
+     				<td>status</td>
      				<td colspan="2">
      					<% if @customer.is_deleted? %>
-     						<span class="text-active">有効	</span>					
+     						<span class="text-active">有効</span>
      					<% else %>
      						<span class="text-invalid">退会済み</span>
      					<% end %>
      				</td>
      			</tr>
      			<tr>
-     				<td><%= link_to "編集", edit_customer_path(@customer), class: "btn btn-success" %></td>
-     				<td><%= link_to "スケジュール管理",  events_path, class: "btn btn-success" %></td>
+     				<td><%= link_to "edit", edit_customer_path(@customer), class: "btn btn-success" %></td>
+     				<td><%= link_to "my schedule",  events_path, class: "btn btn-primary" %></td>
      			<% if current_customer.group.present? %>
-     				<td><%= link_to "グループスケジュール",  group_path(current_customer.group.id), class: "btn btn-success" %></td>
+     				<td><%= link_to "group schedule",  group_path(current_customer.group.id), class: "btn btn-info" %></td>
      			<% else %>
-     			   <td><%= link_to 'グループ加入', groups_path,class: "btn btn-success" %>
+     			   <td><%= link_to 'group join', groups_path,class: "btn btn-info" %>
      			<% end %>
-     			   
+
      			</tr>
      		  </div>
      		 </div>
      		</div>
      	  </div>
-     	

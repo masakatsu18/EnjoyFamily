@@ -1,13 +1,14 @@
-<%= link_to 'イベント追加', new_event_path %> 
+<%= link_to 'event addition', new_event_path %>
 
     <%= month_calendar events: @events do |date, events| %>
       <%= date.day %>
-      
+
         <% events.each do |event| %>
             <div>
               <%= event.title %>
               <%= event.start_time.strftime( "%H:%M" ) %>〜<%= event.finish_time.strftime( "%H:%M" ) %>
-              <%= link_to"編集", edit_event_path(event), class: "btn btn-success" %>
+              <%= event.content %>
+              <%= link_to"edit", edit_event_path(event), class: "btn btn-success" %>
             </div>
         <% end %>
     <% end %>

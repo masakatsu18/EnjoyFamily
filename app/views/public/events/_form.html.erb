@@ -1,28 +1,28 @@
-<p class="text-lg-center font-2">イベント追加</p>
+<p class="text-lg-center font-2">event addition</p>
 <div class="d-flex justify-content-center">
  <%= form_with model: event, url: events_path, method: :post, local: true do |form| %>
 
-  <div class="title mt-5">
+  <div class="title mt-5 font-2">
     <%= form.label :title %>
     <%= form.text_field :title, size:"50" %>
   </div>
 
-  <div class="time mt-5">
+  <div class="time mt-5 font-2">
     <%= form.label :start_time %>
     <%= form.datetime_select :start_time %>
   </div>
-  
-  <div class="time mt-5">
+
+  <div class="time mt-5 font-2">
     <%= form.label :finish_time %>
     <%= form.datetime_select :finish_time %>
   </div>
 
-  <div class="content mt-5">
+  <div class="content mt-5 font-2">
     <%= form.label :content %>
     <%= form.text_field :content, size:"50"  %>
-  </div> 
-  
-  
+  </div>
+
+
   <div>
     <% if group == 'false' %>
       <% if current_customer.group.present? %>
@@ -37,7 +37,7 @@
     <% end %>
   </div>
 
-  
+
   <div class="submit mt-5">
     <%= form.submit %>
   </div>

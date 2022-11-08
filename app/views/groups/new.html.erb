@@ -5,25 +5,25 @@
              <div class="d-flex justify-content-center">
                 <%= form_with model:@group, url:groups_path, method: :post do |f| %>
                      <div class ="mt-5">
-                        <h4>グループ名</h4>
+                        <h4>group name</h4>
                         <span class="badge badge-info rounded-0">必須</span>
                         <%= f.text_field :name, :size => "60*30" %>
                      </div>
                      <div class ="mt-5">
-                        <h4>グループ説明</h4>
+                        <h4>group introduciton</h4>
                         <span class="badge badge-info rounded-0">必須</span>
                         <%= f.text_area :introduction, :size => "60*60" %>
                      </div>
-                     
+
                       <div class ="mt-5">
                         <h4>password</h4>
                         <span class="badge badge-info rounded-0">必須</span>
                         <%= f.text_area :password_digest, :size => "60*60" %>
                      </div>
                      <div>
-                        <%= f.submit'登録する',class:"btn btn-success" %>
+                        <%= f.submit'registration',class:"btn btn-success" %>
                      </div>
-                <% end %>  
+                <% end %>
              </div>
             </div>
         　</div>

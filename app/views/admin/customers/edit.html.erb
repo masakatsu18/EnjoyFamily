@@ -2,8 +2,8 @@
  <p class="text-lg-center font-2"><%= @customer.full_name %>さんの編集</p>
     <div class="d-flex justify-content-center">
      <%= form_with model: @customer, url:admin_customer_path(@customer.id), method: :patch do |f| %>
-     
-     
+
+
         <form>
             <div class = "mt-5 font-3">
                     <tr>
@@ -13,8 +13,8 @@
                       <td><%= f.label :last_name, "(名)", class: "customer_name" %> <%= f.text_field :last_name, :placeholder =>"太郎", :size => "30*30" %></td>
                     </tr>
                   </div>
-                  
-                 <div class = "mt-5 font-3">   
+
+                 <div class = "mt-5 font-3">
                     <tr>
                       <td>フリガナ</td>
                       <span class="badge badge-info rounded-0">必須</span>
@@ -22,14 +22,14 @@
                       <td><%= f.label :last_name_kana, "(メイ)" %> <%= f.text_field :last_name_kana, :placeholder =>"タロウ", :size => "26*30" %></td>
                     </tr>
                 </div>
-                 <div class = "mt-5 font-3">  
+                 <div class = "mt-5 font-3">
                      <tr>
                     　<span class="badge badge-info rounded-0">必須</span>
                       <td><%= f.label :email, class: "customer_name" %> <%= f.text_field :email, autofocus: true, :placeholder =>"example@.com" %></td>
                      </tr>
-                
+
              <div class="d-flex justify-content-center">
-               <td colspan="3"><%= f.submit "更新", class: "btn btn-success" %></td>
+               <td colspan="3"><%= f.submit "update", class: "btn btn-success" %></td>
              </div>
         </form>
      <% end %>

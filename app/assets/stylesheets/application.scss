@@ -9,7 +9,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require simple_calendar 
+ *= require simple_calendar
  *= require_tree .
  *= require_self
  */
@@ -25,7 +25,7 @@
 
 .font-2{
   font-size: 30px;
-  font-family: 'Kaushan', cursive, sans-serif;
+  font-family: 'Zen Antique', serif;
 }
 
 .font-3{
