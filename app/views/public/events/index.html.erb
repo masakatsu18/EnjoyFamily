@@ -9,6 +9,7 @@
               <%= event.start_time.strftime( "%H:%M" ) %>〜<%= event.finish_time.strftime( "%H:%M" ) %>
               <%= event.content %>
               <%= link_to"edit", edit_event_path(event), class: "btn btn-success" %>
+              <%= link_to"delete", event_path(event), method: :delete, class: "btn btn-danger" %>
             </div>
         <% end %>
     <% end %>
