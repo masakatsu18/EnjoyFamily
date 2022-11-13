@@ -1,4 +1,12 @@
-        <div class="container mt-4">
+         <% if @group.errors.any? %>
+            <%= @group.errors.count %>件のエラーが発生しました
+            <ul>
+              <% @group.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          <% end %>
+                  <div class="container mt-4">
           <div class="row">
             <div class="col-md-12 col-lg-6 offset-lg-3">
             <p class="text-center bg-info text-white font-2">グループ作成</p>

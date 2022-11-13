@@ -1,4 +1,5 @@
 class Public::CustomersController < ApplicationController
+ before_action :authenticate_customer!, only: [:edit, :update]
 
  def new
   @customer = Customer.new
@@ -13,6 +14,11 @@ class Public::CustomersController < ApplicationController
 
  def edit
   @customer = Customer.find(params[:id])
+   if @customer == current_customer
+      render "edit"
+   else
+      redirect_to customer_path(current_customer.id)
+   end
  end
 
  def create
@@ -27,6 +33,7 @@ class Public::CustomersController < ApplicationController
  end
 
  private
+
   def customer_params
     params.require(:customer).permit(:last_name, :first_name, :first_name_kana, :last_name_kana, :email,:is_deleted, :title,:content,:start_time)
   end

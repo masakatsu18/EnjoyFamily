@@ -19,6 +19,11 @@ class GroupsController < ApplicationController
 
       def edit
         @group = Group.find(params[:id])
+        if @group.owner_id == current_customer.id
+         render "edit"
+        else
+         redirect_to group_path(@group.id)
+        end
       end
 
       def create
