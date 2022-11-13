@@ -25,7 +25,7 @@ class Public::EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
-    if @event == current_customer
+    if @event.customer_id = current_customer.id
       render "edit"
     else
       redirect_to events_path
@@ -44,7 +44,7 @@ class Public::EventsController < ApplicationController
 
   def destroy
     @event = Event.find(params[:id])
-    if @event == current_customer
+    if @event.customer_id = current_customer.id
        @event.destroy
        redirect_to events_path
     end
