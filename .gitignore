@@ -22,3 +22,7 @@
 /.env
 
 /config/master.key
+/vendor/environment.sh/
+/vendor/sqlite-3.8.11-1.fc21.x86_64.rpm/
+/vendor/sqlite-autoconf-3360000.tar.gz/
+/vendor/sqlite-devel-3.8.11-1.fc21.x86_64.rpm/
