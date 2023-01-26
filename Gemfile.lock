@@ -90,8 +90,6 @@ GEM
     dotenv-rails (2.8.1)
       dotenv (= 2.8.1)
       railties (>= 3.2)
-    enum_help (0.0.19)
-      activesupport (>= 3.0.0)
     erubi (1.11.0)
     execjs (2.8.1)
     ffi (1.15.5)
@@ -178,6 +176,9 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.4.3)
       loofah (~> 2.3)
+    rails-i18n (6.0.0)
+      i18n (>= 0.7, < 2)
+      railties (>= 6.0.0, < 7)
     railties (6.1.7)
       actionpack (= 6.1.7)
       activesupport (= 6.1.7)
@@ -256,7 +257,6 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   dotenv-rails
-  enum_help
   font-awesome-sass (~> 5.15.1)
   jbuilder (~> 2.5)
   jquery-rails
@@ -269,6 +269,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 3.11)
   rails (~> 6.1.4, >= 6.1.4)
+  rails-i18n (~> 6.0.0)
   sass-rails (~> 5.0)
   simple_calendar (~> 2.0)
   spring

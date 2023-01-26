@@ -27,6 +27,7 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+gem 'rails-i18n', '~> 6.0.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -59,7 +60,6 @@ gem 'font-awesome-sass', '~> 5.15.1'
 gem 'bootstrap', '~> 4.3.1'
 gem 'kaminari','~> 1.2.1'
 gem 'bcrypt', '~> 3.1.7'
-gem "enum_help"
 group :production do
   gem 'mysql2'
 end
